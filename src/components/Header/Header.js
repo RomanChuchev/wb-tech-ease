@@ -4,9 +4,10 @@ function Header() {
     return (
         <header className="header">
             <div className="header__container">
-                <div className="header__logo logo">
-                    <a href="!#" className="logo-link">
+                <div className="header__logo">
+                    <a href="!#">
                         <svg
+                            className="logo"
                             width="219"
                             height="45"
                             viewBox="0 0 219 45"

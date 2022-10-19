@@ -33,4 +33,23 @@
         letter-spacing: 0.055em;
         text-transform: uppercase;
     }
+    &__link:hover {
+        color: #3ec4c4;
+        transition: color 0.3s ease-in-out;
+    }
+    &__link:not(:hover) {
+        transition: color 0.3s ease-in-out;
+    }
+}
+
+.logo:hover {
+    path {
+        fill: #3fb8b8;
+        transition: fill 0.3s ease-in-out;
+    }
+}
+.logo:not(:hover) {
+    path {
+        transition: fill 0.3s ease-in-out;
+    }
 }
