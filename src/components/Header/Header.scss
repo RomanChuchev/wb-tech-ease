@@ -1,0 +1,36 @@
+.header {
+    padding: 30px 30px 0 30px;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        min-height: 45px;
+    }
+    &__nav {
+        flex: 1 1 auto;
+    }
+}
+
+.nav {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        column-gap: 40px;
+        row-gap: 5px;
+    }
+
+    &__item {
+        text-align: center;
+    }
+    &__link {
+        color: #3d9090;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 133.84%;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+    }
+}
