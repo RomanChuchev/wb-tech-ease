@@ -32,6 +32,8 @@
     &__info {
         margin-top: 160px;
         position: relative;
+        display: flex;
+        justify-content: space-between;
         &::before {
             content: "";
             position: absolute;
@@ -53,27 +55,113 @@
     }
     &__selection-wrapper {
         position: relative;
-    }
-    &__selection {
-        position: absolute;
-        width: 180px;
-        height: 554px;
-        bottom: 20px;
-        left: -165px;
-        background: #bddddd;
-        z-index: -2;
-        border-radius: 14px;
+        z-index: 101;
     }
     &__selection-shadow {
         position: absolute;
-        z-index: -1;
+        z-index: -1000;
         width: 100px;
         height: 554px;
-        -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-        -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-        bottom: 20px;
-        left: 0;
+        box-shadow: 0px 0 4px -4px rgba(0, 0, 0, 0.25),
+            -6px 0 16px -4px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0 4px -4px rgba(0, 0, 0, 0.25),
+            -6px 0 16px -4px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0px 0 4px -4px rgba(0, 0, 0, 0.25),
+            -6px 0 16px -4px rgba(0, 0, 0, 0.25);
+        top: -120px;
+        right: -130px;
+    }
+    &__selection {
+        width: 180px;
+        height: 554px;
+        z-index: 1;
+        background: #bddddd;
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px 0 0 15px;
+        overflow: hidden;
+        margin-top: -120px;
+        margin-right: -50px;
+    }
+
+    &__block {
+        width: 133px;
+        height: 131px;
         background: transparent;
+        opacity: 1;
+        border-radius: 14px;
+        cursor: pointer;
+        text-align: center;
+
+        &img {
+            width: 133px;
+            height: 131px;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transition: 0.3s;
+        }
+        &:not(:hover) {
+            transition: 0.3s;
+        }
+        &_active {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+    &__night-mode {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        margin-left: -15px;
+        cursor: pointer;
+    }
+}
+
+.night-mode {
+    &__day {
+        background: #fff3da;
+        width: 50%;
+        height: 100%;
+        padding: 20px 0;
+
+        &:hover {
+            background: #f8efdd;
+            transition: 0.3s;
+            path {
+                transition: 0.3s;
+                fill: goldenrod;
+            }
+        }
+        &:not(:hover) {
+            transition: 0.3s;
+            path {
+                transition: 0.3s;
+            }
+        }
+    }
+
+    &__night {
+        background: #94a6a6;
+        width: 50%;
+        height: 100%;
+        padding: 20px 0;
+        &:hover {
+            background: #687575;
+            transition: 0.3s;
+            path {
+                transition: 0.3s;
+                fill: goldenrod;
+            }
+        }
+        &:not(:hover) {
+            transition: 0.3s;
+            path {
+                transition: 0.3s;
+            }
+        }
     }
 }
