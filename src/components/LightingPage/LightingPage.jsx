@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import room from "../../images/room.jpg";
+import nidhtRoom from "../../images/night-room.jpg";
 import lamp0 from "../../images/Lamp-0.png";
 import lamp1 from "../../images/Lamp-1.png";
 import lamp2 from "../../images/Lamp-2.png";
@@ -10,18 +11,19 @@ function LightingPage() {
     const [lamps, setLapms] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeLamp, setActiveLamp] = useState(0);
+    const [isNightMode, setIsNightMode] = useState(false);
 
     useEffect(() => {
         fetch("https://private-anon-1534f9ff17-lampshop.apiary-mock.com/lamps")
             .then((response) => response.json())
             .then((data) => setLapms(data[activeLamp]));
+        // console.log(activeLamp, "activeLamp");
+        // console.log(lamps.id ? lamps.id : null, "data.id");
         setLoading(false);
     }, [activeLamp]);
 
     return (
         <div className="lightin-page">
-            {console.log(lamps ? lamps : null)}
-            {console.log(loading)}
             <div className="lightin-page__container">
                 <div className="lightin-page__wrapper">
                     <p className="lightin-page__text-description">
@@ -56,7 +58,15 @@ function LightingPage() {
                                 {lamps.electrification}
                             </p>
                         )}
-
+                        {loading ? (
+                            <Spinner />
+                        ) : (
+                            <img
+                                className="lightin-page__big-lamp big-lamp-img"
+                                src={lamps.image}
+                                alt="big-lamp"
+                            />
+                        )}
                         <div className="lightin-page__selection">
                             <div className="lightin-page__selection-shadow"></div>
 
@@ -65,31 +75,44 @@ function LightingPage() {
                                     setActiveLamp(0);
                                     setLoading(true);
                                 }}
-                                className="lightin-page__block"
+                                className={
+                                    activeLamp === 0
+                                        ? "lightin-page__block active-lamp"
+                                        : "lightin-page__block"
+                                }
                             >
                                 <img src={lamp0} alt="lamp" />
-                            </div>
-                            <div
-                                onClick={() => {
-                                    setActiveLamp(1);
-                                    setLoading(true);
-                                }}
-                                className="lightin-page__block"
-                            >
-                                <img src={lamp1} alt="lamp" />
                             </div>
                             <div
                                 onClick={() => {
                                     setActiveLamp(2);
                                     setLoading(true);
                                 }}
-                                className="lightin-page__block"
+                                className={
+                                    activeLamp === 2
+                                        ? "lightin-page__block active-lamp"
+                                        : "lightin-page__block"
+                                }
+                            >
+                                <img src={lamp1} alt="lamp" />
+                            </div>
+                            <div
+                                onClick={() => {
+                                    setActiveLamp(1);
+                                    setLoading(true);
+                                }}
+                                className={
+                                    activeLamp === 1
+                                        ? "lightin-page__block active-lamp"
+                                        : "lightin-page__block"
+                                }
                             >
                                 <img src={lamp2} alt="lamp" />
                             </div>
 
                             <div className="lightin-page__night-mode">
                                 <svg
+                                    onClick={() => setIsNightMode(false)}
                                     className="night-mode__day"
                                     width="33"
                                     height="34"
@@ -103,6 +126,7 @@ function LightingPage() {
                                     />
                                 </svg>
                                 <svg
+                                    onClick={() => setIsNightMode(true)}
                                     className="night-mode__night"
                                     width="31"
                                     height="32"
@@ -122,9 +146,18 @@ function LightingPage() {
                 <div className="lightin-page__selection-wrapper">
                     <img
                         className="lightin-page__room-img"
-                        src={room}
+                        src={isNightMode ? nidhtRoom : room}
                         alt="room"
                     ></img>
+                    {loading ? (
+                        <Spinner />
+                    ) : (
+                        <img
+                            className="big-lamp-img room-img__big-lamp-img"
+                            src={lamps.image}
+                            alt="big-lamp"
+                        />
+                    )}
                 </div>
             </div>
         </div>

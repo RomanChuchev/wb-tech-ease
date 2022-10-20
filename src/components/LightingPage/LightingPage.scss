@@ -49,13 +49,13 @@
     }
     &__room-img {
         border-radius: 18px;
-        width: 100%;
-        max-width: 867px;
+        width: 867px;
         height: 1087px;
     }
     &__selection-wrapper {
         position: relative;
         z-index: 101;
+        overflow: hidden;
     }
     &__selection-shadow {
         position: absolute;
@@ -107,9 +107,6 @@
         &:not(:hover) {
             transition: 0.3s;
         }
-        &_active {
-            background: rgba(255, 255, 255, 0.5);
-        }
     }
     &__night-mode {
         width: 100%;
@@ -118,6 +115,10 @@
         align-items: center;
         margin-left: -15px;
         cursor: pointer;
+    }
+    &__big-lamp {
+        margin-top: -160px;
+        margin-left: -40px;
     }
 }
 
@@ -129,7 +130,7 @@
         padding: 20px 0;
 
         &:hover {
-            background: #f8efdd;
+            background: #ffebc2;
             transition: 0.3s;
             path {
                 transition: 0.3s;
@@ -163,5 +164,24 @@
                 transition: 0.3s;
             }
         }
+    }
+}
+.big-lamp-img {
+    height: 100%;
+    max-height: 540px;
+    width: auto;
+}
+
+.active-lamp {
+    background: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
+.room-img {
+    &__big-lamp-img {
+        position: absolute;
+        top: 0px;
+        left: 210px;
+        height: 30%;
     }
 }
