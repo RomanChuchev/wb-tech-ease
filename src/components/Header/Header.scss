@@ -9,6 +9,7 @@
     }
     &__nav {
         flex: 1 1 auto;
+        margin-top: -25px;
     }
 }
 
@@ -39,6 +40,14 @@
     }
     &__link:not(:hover) {
         transition: color 0.3s ease-in-out;
+    }
+}
+
+@media (max-width: 1001px) {
+    .nav {
+        &__list {
+            column-gap: 20px;
+        }
     }
 }
 

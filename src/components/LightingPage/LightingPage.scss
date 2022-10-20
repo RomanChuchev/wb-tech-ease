@@ -1,0 +1,79 @@
+.lightin-page {
+    &__container {
+        display: grid;
+        grid-template-columns: 5fr 6fr;
+    }
+    &__wrapper {
+        margin: 30px;
+        flex: 1 1 auto;
+    }
+    &__text-description {
+        font-weight: 100;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0.055em;
+        margin: 30px 70px 0 0;
+        &::after {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 200%;
+            margin-top: 80px;
+            margin-left: -100px;
+            background: #c4c4c4;
+        }
+    }
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        letter-spacing: 0.055em;
+    }
+    &__info {
+        margin-top: 160px;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            display: block;
+            height: 450px;
+            width: 450px;
+            border-radius: 50%;
+            background: #e4d7b9;
+            top: -135px;
+            left: -100px;
+        }
+    }
+    &__room-img {
+        border-radius: 18px;
+        width: 100%;
+        max-width: 867px;
+        height: 1087px;
+    }
+    &__selection-wrapper {
+        position: relative;
+    }
+    &__selection {
+        position: absolute;
+        width: 180px;
+        height: 554px;
+        bottom: 20px;
+        left: -165px;
+        background: #bddddd;
+        z-index: -2;
+        border-radius: 14px;
+    }
+    &__selection-shadow {
+        position: absolute;
+        z-index: -1;
+        width: 100px;
+        height: 554px;
+        -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+        bottom: 20px;
+        left: 0;
+        background: transparent;
+    }
+}
