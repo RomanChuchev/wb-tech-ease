@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wb-tech-ease/static/css/main.8c58518b.css",
+    "main.js": "/wb-tech-ease/static/js/main.c9bf36a1.js",
+    "index.html": "/wb-tech-ease/index.html",
+    "main.8c58518b.css.map": "/wb-tech-ease/static/css/main.8c58518b.css.map",
+    "main.c9bf36a1.js.map": "/wb-tech-ease/static/js/main.c9bf36a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8c58518b.css",
+    "static/js/main.c9bf36a1.js"
+  ]
+}
