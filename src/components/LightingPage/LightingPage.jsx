@@ -12,15 +12,26 @@ function LightingPage() {
     const [loading, setLoading] = useState(true);
     const [activeLamp, setActiveLamp] = useState(0);
     const [isNightMode, setIsNightMode] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
         fetch("https://private-anon-1534f9ff17-lampshop.apiary-mock.com/lamps")
             .then((response) => response.json())
-            .then((data) => setLapms(data[activeLamp]));
-        // console.log(activeLamp, "activeLamp");
-        // console.log(lamps.id ? lamps.id : null, "data.id");
-        setLoading(false);
-    }, [activeLamp]);
+            .then((data) => setLapms(data[activeLamp]))
+            .catch(function (error) {
+                console.log(error);
+                setIsError(true);
+            });
+        console.log(activeLamp, "activeLamp");
+        console.log(lamps, "lamps");
+
+        if (isError) {
+            setLoading(true);
+        } else {
+            setLoading(false);
+        }
+        console.log(isError, loading);
+    }, [activeLamp, lamps]);
 
     return (
         <section className="lightin">
@@ -46,9 +57,8 @@ function LightingPage() {
                         <div className="flex-wrapper__card card-wrapper">
                             <div className="card-wrapper__info">
                                 {loading ? (
-                                    <div className="card-wrapper__text">
-                                        <strong>Description:</strong>{" "}
-                                        <Spinner /> <br />{" "}
+                                    <div className="card-wrapper__text spinner-wrap">
+                                        <Spinner />
                                     </div>
                                 ) : (
                                     <p className="card-wrapper__text">
@@ -69,13 +79,17 @@ function LightingPage() {
                             </div>
 
                             {loading ? (
-                                <Spinner />
+                                <div className="card-wrapper__big-lamp spinner-wrap">
+                                    <Spinner />
+                                </div>
                             ) : (
-                                <img
-                                    className="card-wrapper__big-lamp big-lamp-img"
-                                    src={lamps.image}
-                                    alt="big-lamp"
-                                />
+                                <div className="card-wrapper__big-lamp">
+                                    <img
+                                        className=" big-lamp-img"
+                                        src={lamps.image}
+                                        alt="big-lamp"
+                                    />
+                                </div>
                             )}
 
                             <div className="card-wrapper__selection">
@@ -161,7 +175,9 @@ function LightingPage() {
                             alt="room"
                         ></img>
                         {loading ? (
-                            <Spinner />
+                            <div className=" room-img__big-lamp-img spinner-wrap">
+                                <Spinner />
+                            </div>
                         ) : (
                             <img
                                 className="big-lamp-img room-img__big-lamp-img"
