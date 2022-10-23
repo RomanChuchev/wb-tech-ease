@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wb-tech-ease/static/css/main.e0406763.css",
-    "main.js": "/wb-tech-ease/static/js/main.48f9fbc7.js",
+    "main.js": "/wb-tech-ease/static/js/main.64ab82e4.js",
     "static/media/night-room.jpg": "/wb-tech-ease/static/media/night-room.23a584f56c51ff82aca2.jpg",
     "static/media/room.jpg": "/wb-tech-ease/static/media/room.cf0f576a3dd57d0f6077.jpg",
     "index.html": "/wb-tech-ease/index.html",
     "main.e0406763.css.map": "/wb-tech-ease/static/css/main.e0406763.css.map",
-    "main.48f9fbc7.js.map": "/wb-tech-ease/static/js/main.48f9fbc7.js.map"
+    "main.64ab82e4.js.map": "/wb-tech-ease/static/js/main.64ab82e4.js.map"
   },
   "entrypoints": [
     "static/css/main.e0406763.css",
-    "static/js/main.48f9fbc7.js"
+    "static/js/main.64ab82e4.js"
   ]
 }
