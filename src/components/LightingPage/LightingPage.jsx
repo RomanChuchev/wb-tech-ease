@@ -22,13 +22,13 @@ function LightingPage() {
                 console.log(error);
                 setIsError(true);
             });
+
         if (isError) {
             setLoading(true);
         } else {
             setLoading(false);
         }
-        // eslint-disable-next-line
-    }, [activeLamp]);
+    }, [activeLamp, isError]);
 
     return (
         <section className="lightin">
